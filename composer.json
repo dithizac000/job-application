@@ -1,0 +1,12 @@
+{
+  "name": "zackdithi/SDEV/job-application",
+  "authors": [
+    {
+      "name": "Zack Dithilath",
+      "email": "dithilath.aphixath@student.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
