@@ -13,39 +13,62 @@
 <body>
     <!-- Navigation bar, at top-->
     <header>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        <nav class="navbar navbar-expand-md light fixed-top bg-light">
+        <nav class="navbar navbar-expand-md light bg-light">
             <a clas="navbar-brand" href="#">Zootopia</a>
-            <button class="navbar-toggler" type="button" data-toggle="collaspe" data-target="#navbarSupportedCotent" aria-controls="navbarSupportedConted a</button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Internship</a>
+                    </li>
+                </ul>
+                <form class="form-inline mt-2 mt-md-0">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Apply</button>
+                </form>
+            </div>
         </nav>
     </header>
-    <h1>Zoo Internship</h1>
-    <div class="container marketing">
-        <div class="row">
-            <h2>Mission</h2>
-            <div class="column">
-                <p>Hello</p>
-            </div>
-        </div>
-        <div class="row">
-            <h2>About Us</h2>
-            <div class="column">
-                <p>Hello</p>
-            </div>
-        </div>
-        <div class="row">
-            <h2>Meet Our Team</h2>
-            <div class="column">
-                <p>Hello</p>
-                <br>
-                <button>Apply Now</button>
-            </div>
 
-        </div>
-    </div>
-<!-- Optional JavaScript; choose one of the two! -->
+    <main role="main">
+        <!--Start of background image gallery -->
 
+        <!--Start at team member section-->
+        <div class="container marketing">
+            <!--Three columns of text regarding the team -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <img class="rounded-circle" src="" alt="Pokemon" width="140" height="140">
+                    <h2>Zack Carey</h2>
+                    <p>Hello I am</p>
+                </div> <!-- end of col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="rounded-circle" src="" alt="Pokemon" width="140" height="140">
+                    <h2>Zack Carey</h2>
+                    <p>Hello I am</p>
+                </div> <!-- end of col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="rounded-circle" src="" alt="Pokemon" width="140" height="140">
+                    <h2>Zack Carey</h2>
+                    <p>Hello I am</p>
+                </div> <!-- end of col-lg-4 -->
+            </div> <!-- end of row-->
+        </div> <!-- end of container -->
+
+        <!--Start at about us-->
+
+        <!-- Start internship info -->
+    </main> <!-- end of main role-->
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
