@@ -1,3 +1,8 @@
+<!-- Zack Dithilath,
+    01.21.2023
+    Basic job application website with fat free built in and git-hub
+    SDEV  328
+    Tina O.-->
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,69 +12,89 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- css styling -->
+    <link rel="stylesheet" href="styles/styles.css">
 
     <title>Basic Job Application</title>
 
 </head>
     <!-- Navigation bar, at top-->
     <header>
-        <nav class="navbar navbar-expand-md light bg-light">
-            <a class="navbar-brand" href="#">Zootopia</a>
+        <nav class="navbar navbar-expand-md  navbar-light ">
+            <a class="navbar-brand" href="https://zackdithilath.greenriverdev.com/SDEV328/job-application/">Zootopia Park Zoo</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="https://zackdithilath.greenriverdev.com/SDEV328/job-application/">Home | </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Team</a>
+                        <a class="nav-link" href="#about-us">About | </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="#internship">Internship | </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Internship</a>
+                        <a class="nav-link" href="#team">Team | </a>
                     </li>
                 </ul>
-                <form class="form-inline mt-2 mt-md-0">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Apply</button>
-                </form>
-            </div>
+                <ul class="navbar-nav ml-auto flex-column-reverse flex-md-row">
+                    <li><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Apply</button>
+                    </li>
+                </ul>
+             </div>
         </nav>
     </header>
 
     <!-- three sections about home page and right img for column -->
-    <div class="row featurette">
-        <div class="col-md-6">
-            <h2 class="featurette-heading">About Us</h2>
-            <p class="lead">Zootopia Park Zoo is committed to attracting, developing and retaining highly qualified
-                employees. As a 24/7 environment, we have a variety of career opportunities, including positions in
-                animal management, development, education, facilities, horticulture, guest services, information
-                technology, marketing, retail, security and more. At the zoo, employment is more than just a job.
-                Employees are able to develop their appreciation of animals, the natural world and the need for
-                conservation on a local and global level, while contributing their specific skills and talents to our
-                mission: </p>
-            <hr class="featurette-divider">
-            <h2 class="featurette-heading">Internship</h2>
-            <p class="lead">We are looking for interns who are dedicated to conservation and improving their teaching
-                and management practices. They should have some experience with camps or environmental education and
-                confidence in supporting hands-on, equitable programming. The ideal candidate will be an excellent
-                multitasker, well organized, with excellent communication skills, and a genuine passion for working
-                with young people.
-            </p>
-            <hr class="featurette-divider">
-            <h2 class="featurette-heading">The Team</h2>
-            <p><i>I find pride in working with my fellow campers!</i></p>
-            <p class="lead">Zack Do, Camp Lead</p>
-            <p><i>After 20 years of teaching and touring the zoo, I still find joy and excitement in teaching kids and adults!</i></p>
-            <p class="lead"><i>Bob Smith, Senior Zoo Instructor</i></p>
-            <p><i>"No matter your role, everyone makes a different!"</i></p>
-            <p class="lead"><i>Jackie Lee, Student Intern </i></p>
-        </div>
-        <div class="col-md-6">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+    <div class="container-fluid">
+        <div class="row featurette bg-light">
+            <div class="col-md-6">
+                <!-- about us section -->
+                <h2 class="featurette-heading" id="about-us">About Us</h2>
+                <p class="lead">Zootopia Park Zoo is committed to attracting, developing and retaining highly qualified
+                    employees. As a 24/7 environment, we have a variety of career opportunities, including positions in
+                    animal management, development, education, facilities, horticulture, guest services, information
+                    technology, marketing, retail, security and more. At the zoo, employment is more than just a job.
+                    Employees are able to develop their appreciation of animals, the natural world and the need for
+                    conservation on a local and global level, while contributing their specific skills and talents to our
+                    mission: </p>
+                <br>
+                <hr class="featurette-divider">
+                <!-- About internship section -->
+                <h2 class="featurette-heading" id="internship">Internship</h2>
+                <p class="lead">We are looking for interns who are dedicated to conservation and improving their teaching
+                    and management practices. They should have some experience with camps or environmental education and
+                    confidence in supporting hands-on, equitable programming. The ideal candidate will be an excellent
+                    multitasker, well organized, with excellent communication skills, and a genuine passion for working
+                    with young people.
+                </p>
+                <br>
+                <hr class="featurette-divider">
+                <!--About Team section -->
+                <h2 class="featurette-heading" id="team">The Team</h2>
+                <ul class="text-indent-4">
+                    <li><i>"I find pride in working with my fellow campers!" </i>
+                        -Zack Do, Camp Lead</li>
+                    <li><i>"After 20 years of teaching and touring the zoo,
+                        I still find joy and excitement in teaching kids and adults!"</i>
+                        -Bob Smith, Senior Zoo Instructor</li>
+                    <li><i>"No matter your role, everyone makes a different!"</i>
+                        -Jackie Lee, Student Intern</li>
+                </ul>
+
+                <!-- Apply button -->
+                <div class="text-center">
+                    <button class="btn btn-outline-success my-2 my-sm-0 text " type="submit">Apply</button>
+                </div>
+                <hr class="featurette-divider">
+            </div>
+            <!-- content img, column -->
+            <div class="col-md-6">
+                <img class="rounded" src="images/grizzly-bear.jpg" height="900" width="602" alt="grizzly bear standing"/>
+            </div>
         </div>
     </div>
 
