@@ -1,9 +1,12 @@
 <?php
 //This is my controller
 
-// Turn on error reporting
+//Turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+
+// start a session
+session_start();
 
 //require autoload file
 require_once('vendor/autoload.php');
@@ -18,4 +21,7 @@ $f3->route('GET /', function() {
     echo $view->render("views/home.html"); // render method, return text on template
 });
 
+
+
 //run fat free
+$f3->run();
