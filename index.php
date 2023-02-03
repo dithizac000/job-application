@@ -19,4 +19,3 @@ $f3->route('GET /', function() {
 });
 
 //run fat free
-$f3->run();
