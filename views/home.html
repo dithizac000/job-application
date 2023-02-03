@@ -1,53 +1,4 @@
-<!-- Zack Dithilath,
-    01.21.2023
-    Basic job application website with fat free built in and git-hub
-    SDEV  328
-    Tina O.-->
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- css styling -->
-    <link rel="stylesheet" href="styles/styles.css">
-
-    <title>Basic Job Application</title>
-
-</head>
-    <!-- Navigation bar, at top-->
-    <header>
-        <nav class="navbar navbar-expand-md  navbar-light ">
-            <a class="navbar-brand" href="https://zackdithilath.greenriverdev.com/SDEV328/job-application/">Zootopia Park Zoo</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="https://zackdithilath.greenriverdev.com/SDEV328/job-application/">Home | </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about-us">About | </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#internship">Internship | </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#team">Team | </a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ms-auto">
-                    <li>
-                        <button class="btn btn-outline-success my-2 my-sm-0 text" type="submit">Apply</button>
-                    </li>
-                </ul>
-             </div>
-        </nav>
-    </header>
+<include href="views/header.html"></include>
 
     <!-- three sections about home page and right img for column -->
     <div class="container-fluid">
@@ -88,7 +39,9 @@
 
                 <!-- Apply button -->
                 <div class="text-center">
-                    <button class="btn btn-outline-success my-2 my-sm-0 text " type="submit">Apply</button>
+                    <form action="#" method="get">
+                        <button class="btn btn-outline-success my-2 my-sm-0 text " type="submit">Apply</button>
+                    </form>
                 </div>
                 <hr class="featurette-divider">
             </div>
