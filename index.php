@@ -70,8 +70,8 @@ $f3->route('GET|POST /mailing', function ($f3) {
         var_dump($_POST);
 
         // variables for arrays
-        $_SESSION['software'] = implode(",",$_POST['software']);
-        $_SESSION['industry'] = implode(",",$_POST['industry']);
+        $_SESSION['software'] = implode(", ",$_POST['software']);
+        $_SESSION['industry'] = implode(", ",$_POST['industry']);
 
 
         // direct to mailing
@@ -83,7 +83,7 @@ $f3->route('GET|POST /mailing', function ($f3) {
 });
 
 // route from mailing and var dump to views/summary.html
-$f3->route('GET|POST /summary', function() {
+$f3->route('GET /summary', function() {
     //instantiate a view
     $view = new Template(); // template is a fat free class
     echo $view->render("views/summary.html"); // render method, return text on template

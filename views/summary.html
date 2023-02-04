@@ -5,11 +5,21 @@
     <div class="row featurette bg-light">
         <div class="col-md-12">
             <h2 class="featurette-heading" id="summary">Summary</h2>
+            <!-- info. html session -->
             <p>First Name: {{@SESSION.fname}} </p>
+            <p>Last Name: {{@SESSION.lname}} </p>
+            <p>Email: {{@SESSION.email}} </p>
+            <p>Sate: {{@SESSION.state}} </p>
+            <!-- experience.html session -->
+            <p>Biography: {{@SESSION.bio}} </p>
+            <p>Github: {{@SESSION.link}} </p>
             <p>Years: {{@SESSION.years}} </p>
+            <p>Relocation: {{@SESSION.relocate}} </p>
+            <!-- mailing.html session -->
+            <p>Software: {{@SESSION.software}} </p>
+            <p>Industry Verticals: {{@SESSION.industry}} </p>
 
             <hr class="featurette-divider">
-
             <!-- next button -->
             <div class="text-center">
                 <a role="button" class="btn btn-outline-success my-2 my-sm-0 text" href="summary">Submit Application</a>
