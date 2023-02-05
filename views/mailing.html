@@ -1,43 +1,38 @@
 <include href="views/header.html"></include>
 
 <!-- mailing info section  -->
-<div class="container-fluid">
-    <div class="row featurette bg-light">
-        <div class="col-md-12">
-            <h2 class="featurette-heading" id="about-us">Personal Information</h2>
-            <form action="#" method="post" class="form-horizontal">
-                <!-- software dev. jobs -->
-                <p>Software Development Jobs</p>
-                <div class="form-check">
-                     <label><input type="checkbox" class="form-check-input" name="software[]" value="PHP">PHP</label><br>
-                    <label><input type="checkbox" class="form-check-input" name="software[]" value="Java">Java</label><br>
-                    <label><input type="checkbox" class="form-check-input" name="software[]" value="Python">Python</label><br>
-                    <label><input type="checkbox" class="form-check-input" name="software[]" value="HTML">HTML</label><br>
-                    <label><input type="checkbox" class="form-check-input" name="software[]" value="CSS">CSS</label><br>
-                    <label><input type="checkbox" class="form-check-input" name="software[]" value="ReactJS">ReactJS</label><br>
-                    <label><input type="checkbox" class="form-check-input" name="software[]" value="NodeJs">NodeJs</label><br>
-                </div>
-
-                <!-- industry verticals -->
-                <div class="form-check">
-                    <p>Industry Verticals</p>
-                    <label><input type="checkbox" class="form-check-input" name="industry[]" value="SaaS">SaaS</label><br>
-                    <label><input type="checkbox" class="form-check-input" name="industry[]" value="Health tech">Health tech</label><br>
-                    <label><input type="checkbox" class="form-check-input" name="industry[]" value="Ag tech">Ag tech</label><br>
-                    <label><input type="checkbox" class="form-check-input" name="industry[]" value="HR tech">HR tech</label><br>
-                    <label><input type="checkbox" class="form-check-input" name="industry[]" value="Industrial tech">Industrial tech</label><br>
-                    <label><input type="checkbox" class="form-check-input" name="industry[]" value="Cybersecurity">Cybersecurity</label><br>
-                </div>
-
-                <!-- next button -->
-                <hr class="featurette-divider">
-                <div class="col-xs-3 text-center">
-                    <button class="btn btn-outline-success my-2 my-sm-0 text" type="submit">Next</button>
-                </div>
-            </form>
+<div class="form-row featurette bg-light">
+    <h2 class="d-flex text-secondary">Job Openings Mailing List</h2>
+    <form action="#" method="post" class="form-horizontal needs-validation">
+        <!-- software dev. jobs -->
+        <p>Software Development Jobs</p>
+        <div class="form-check required">
+            <label><input type="checkbox" class="form-check-input" name="software[]" value="PHP" >PHP</label><br>
+            <label><input type="checkbox" class="form-check-input" name="software[]" value="Java">Java</label><br>
+            <label><input type="checkbox" class="form-check-input" name="software[]" value="Python">Python</label><br>
+            <label><input type="checkbox" class="form-check-input" name="software[]" value="HTML">HTML</label><br>
+            <label><input type="checkbox" class="form-check-input" name="software[]" value="CSS">CSS</label><br>
+            <label><input type="checkbox" class="form-check-input" name="software[]" value="ReactJS">ReactJS</label><br>
+            <label><input type="checkbox" class="form-check-input" name="software[]" value="NodeJs">NodeJs</label><br>
         </div>
 
-    </div>
+        <!-- industry verticals -->
+        <div class="form-check required">
+            <p>Industry Verticals</p>
+            <label><input type="checkbox" class="form-check-input" name="industry[]" value="SaaS">SaaS</label><br>
+            <label><input type="checkbox" class="form-check-input" name="industry[]" value="Health tech">Health tech</label><br>
+            <label><input type="checkbox" class="form-check-input" name="industry[]" value="Ag tech">Ag tech</label><br>
+            <label><input type="checkbox" class="form-check-input" name="industry[]" value="HR tech">HR tech</label><br>
+            <label><input type="checkbox" class="form-check-input" name="industry[]" value="Industrial tech">Industrial tech</label><br>
+            <label><input type="checkbox" class="form-check-input" name="industry[]" value="Cybersecurity">Cybersecurity</label><br>
+        </div>
+
+        <!-- next button -->
+        <hr class="featurette-divider">
+        <div class="col-xs-3 text-center">
+            <button class="btn btn-outline-success my-2 my-sm-0 text" type="submit">Next</button>
+        </div>
+    </form>
 </div>
 
 <!-- footer -->

@@ -1,54 +1,48 @@
 <include href="views/header.html"></include>
 
 <!-- about user experience page  -->
-<div class="container-fluid">
-    <div class="row featurette bg-light">
-        <div class="col-md-12">
-            <h2 class="featurette-heading" id="experience">Experience</h2>
-            <hr class="featurette-divider">
-            <form action="#" method="post" class="form-horizontal">
-                <!--bio section -->
-                <div class="form-group">
-                    <label for="bio">Biography</label>
-                    <textarea class="form-control" id="bio" rows="3" name="bio" required></textarea>
-                </div>
-                <!-- git hub link -->
-                <div class="form-group">
-                    <label for="link">Github link</label>
-                    <input type="text" class="form-control" id="link" name="link">
-                </div>
-                <!-- years of experience radio -->
-                <div class="form-check">
-                    <p>Years of Experience</p>
-                    <input type="radio" id="age1" name="years" value="0-2">
-                    <label for="age1">0-2</label><br>
-                    <input type="radio" id="age2" name="years" value="2-4">
-                    <label for="age2">2-4</label><br>
-                    <input type="radio" id="age3" name="years" value="4+">
-                    <label for="age3">4+</label><br><br>
-                </div>
-                <!-- willing to relocate radio -->
-                <div class="form-check">
-                    <p>Willing to relocate</p>
-                    <input type="radio" id="yes" name="relocate" value="yes">
-                    <label for="age1">Yes</label><br>
-                    <input type="radio" id="no" name="relocate" value="no">
-                    <label for="age2">No</label><br>
-                    <input type="radio" id="maybe" name="relocate" value="maybe">
-                    <label for="age3">Maybe</label><br><br>
-                </div>
-
-                <!-- next button -->
-                <hr class="featurette-divider">
-                <div class="col-xs-3 text-center">
-                    <button class="btn btn-outline-success my-2 my-sm-0 text" type="submit">Next</button>
-                </div>
-            </form>
-
+<div class="form-row featurette bg-light">
+    <h2 class="d-flex text-secondary">Experience</h2>
+    <hr class="featurette-divider">
+    <form action="#" method="post" class="form-horizontal needs-validation">
+        <!--bio section -->
+        <div class="form-group">
+            <label for="bio">Biography</label>
+            <textarea class="form-control" id="bio" rows="3" name="bio" required></textarea>
+        </div>
+        <!-- git hub link -->
+        <div class="form-group">
+            <label for="link">Github link</label>
+            <input type="text" class="form-control" id="link" name="link" required>
+        </div>
+        <!-- years of experience radio -->
+        <div class="form-check">
+            <p>Years of Experience</p>
+            <input type="radio" id="age1" name="years" value="0-2" required>
+            <label for="age1">0-2</label><br>
+            <input type="radio" id="age2" name="years" value="2-4" required>
+            <label for="age2">2-4</label><br>
+            <input type="radio" id="age3" name="years" value="4+" required>
+            <label for="age3">4+</label><br><br>
+        </div>
+        <!-- willing to relocate radio -->
+        <div class="form-check">
+            <p>Willing to relocate</p>
+            <input type="radio" id="yes" name="relocate" value="yes" required>
+            <label for="age1">Yes</label><br>
+            <input type="radio" id="no" name="relocate" value="no" required>
+            <label for="age2">No</label><br>
+            <input type="radio" id="maybe" name="relocate" value="maybe" required>
+            <label for="age3">Maybe</label><br><br>
         </div>
 
-    </div>
-</div>
+        <!-- next button -->
+        <hr class="featurette-divider">
+        <div class="col-xs-3 text-center">
+            <button class="btn btn-outline-success my-2 my-sm-0 text" type="submit">Next</button>
+        </div>
+    </form>
+ </div>
 
 <!-- footer -->
 <footer class="container">
