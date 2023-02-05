@@ -3,31 +3,45 @@
 <!-- mailing info section  -->
 <div class="container-fluid">
     <div class="row featurette bg-light">
-        <div class="col-md-12">
-            <h2 class="featurette-heading" id="summary">Summary</h2>
-            <!-- info. html session -->
-            <p>First Name: {{@SESSION.fname}} </p>
-            <p>Last Name: {{@SESSION.lname}} </p>
-            <p>Email: {{@SESSION.email}} </p>
-            <p>Phone: {{@SESSION.phone}} </p>
-            <p>State: {{@SESSION.state}} </p>
-            <!-- experience.html session -->
-            <p>Biography: {{@SESSION.bio}} </p>
-            <p>Github: {{@SESSION.link}} </p>
-            <p>Years: {{@SESSION.years}} </p>
-            <p>Relocation: {{@SESSION.relocate}} </p>
-            <!-- mailing.html session -->
-            <p>Software: {{@SESSION.software}} </p>
-            <p>Industry Verticals: {{@SESSION.industry}} </p>
-
-            <hr class="featurette-divider">
-            <!-- next button -->
-            <div class="text-center">
-                <a role="button" class="btn btn-outline-success my-2 my-sm-0 text" href="summary">Submit Application</a>
+        <div class="col-6">
+            <h2 class="featurette-heading text-secondary " id="summary">Summary</h2>
+            <div class="row border border-secondary rounded">
+                <!-- info. html session -->
+                <p>Name: {{@SESSION.fname}} {{@SESSION.lname}} </p>
+                <hr class="featurette-divider">
+                <p>Email: {{@SESSION.email}} </p>
+                <hr class="featurette-divider">
+                <p>State: {{@SESSION.state}} </p>
+                <hr class="featurette-divider">
+                <p>State: {{@SESSION.state}} </p>
+                <hr class="featurette-divider">
+                <!-- experience.html session -->
+                <p>Github: {{@SESSION.link}} </p>
+                <hr class="featurette-divider">
+                <p>Years: {{@SESSION.years}} </p>
+                <hr class="featurette-divider">
+                <p>Relocation: {{@SESSION.relocate}} </p>
+                <hr class="featurette-divider">
+                <!-- mailing.html session -->
+                <p>Software: {{@SESSION.software}} </p>
+                <hr class="featurette-divider">
+                <p>Industry Verticals: {{@SESSION.industry}} </p>
             </div>
-            <hr class="featurette-divider">
         </div>
+        <div class="col-6">
+            <img  class="rounded "src="images/jaguar.jpg" height="450" width="545" alt="jaguar headshot"/>
+            <h2 class="featurette-heading text-secondary" >Biography</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda consectetur eveniet fugit optio
+                perferendis. A laudantium libero, maiores neque nostrum nulla quo reprehenderit sit temporibus ullam?
+                Dolores expedita pariatur porro?</p>
+            <p>{{@SESSION.bio}} </p>
+        </div>
+        <hr class="featurette-divider">
+        <!-- submit button -->
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <a role="button" class="btn btn-outline-success my-2 my-sm-0 h-100 text" href="summary">Submit My Application</a>
 
+        </div>
     </div>
 </div>
 
