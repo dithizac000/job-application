@@ -3,42 +3,55 @@
 <!-- basic info abot user-->
 <div class="container-fluid">
     <div class="row featurette bg-light">
-        <div class="col-md-12">
-            <!-- basic info section -->
-            <h2 class="featurette-heading" id="about-us">Personal Information</h2>
-            <form action="#" method="post" class="form-horizontal">
-                <!-- first name input -->
-                <div class="form-group">
-                    <label for="fname">First Name:</label>
-                    <input type="text" name="fname" class="form-control" id="fname" placeholder="First Name" required>
+        <form action="#" method="post" class="form-horizontal">
+            <h2 class="d-flex text-secondary">Personal Information</h2>
+            <hr class="featurette-divider">
+            <div class="col-md-8">
+                <!-- basic info section -->
+                    <!-- first name input -->
+                    <div class="form-row">
+                        <label for="fname" >First Name:</label>
+                        <input type="text" name="fname" class="form-control" id="fname" placeholder="First Name" required>
+                     <!-- last name input -->
+                         <label for="lname">Last Name:</label>
+                        <input type="text" name="lname"class="form-control" id="lname" placeholder="Last Name" required>
+                     <!-- email input row-->
+                         <label for="email">Email:</label>
+                        <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
+                    </div>
+            </div> <!-- end of con-col and start of note div -->
+            <div class="col-md-4">
+                <div id="form-right-col1" class="col-lg d-flex flex-column justify-content-between">
+                    <div id="note" class="p-3 alert alert-secondary h-100 d-flex justify-content-center align-items-center">
+                        <div>
+                            <b>Note:</b> All information entered is protected by our <a class="alert-link" href="#">
+                            privacy policy.</a> Profile information can only be viewed by others with your permission.
+                        </div>
+                    </div>
                 </div>
-                <!-- last name input -->
-                <div class="form-group">
-                    <label for="lname">Last Name:</label>
-                    <input type="text" name="lname"class="form-control" id="lname" placeholder="Last Name" required>
-                </div>
-                <!-- state selection -->
-                <div class="form-group">
-                    <label for="state">Example multiple select</label>
-                    <select multiple class="form-control form-control-sm" name="state" id="state" selected="selected">
-                        <option selected="selected" value="Washington">Washington State</option>
-                        <option value="Washington">Washington State</option>
-                        <option value="Washington">Washington State</option>
-                    </select>
-                </div>
-                <!-- email input -->
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
-                </div>
-                <!-- next button -->
-                <hr class="featurette-divider">
-                <div class="col-xs-3 text-center">
-                    <button class="btn btn-outline-success my-2 my-sm-0 text" type="submit">Next</button>
-                </div>
-            </form>
-        </div>
-
+            </div><!-- end of con-col and start of end form div-->
+            <div class="col-md-12">
+                <div class="form-row">
+                    <!-- state input -->
+                    <div class="form-group col-md-4">
+                        <label for="state">State</label>
+                        <select id="state"  name=state" class="form-control custom-select">
+                            <option value="Washington"selected>Washington</option>
+                            <option value="Washington">Washington</option>
+                        </select>
+                    </div>
+                    <!-- phone input-->
+                    <div class="form-group col-md-4">
+                        <label for="phone">Phone:</label>
+                        <input type="text" name="phone" class="form-control" id="phone" placeholder="123-456-7890" >
+                    </div>
+                    <!-- button section -->
+                    <div class="form-group">
+                        <button class="btn btn-outline-success my-2 my-sm-0 text" type="submit">Next</button>
+                    </div>
+                </div> <!-- end of form row -->
+            </div><!-- end of con-col -->
+        </form>
     </div>
 </div>
 

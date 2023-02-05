@@ -32,6 +32,7 @@ $f3->route('GET|POST /info', function ($f3) {
         $_SESSION['fname'] = $_POST['fname'];
         $_SESSION['lname'] = $_POST['lname'];
         $_SESSION['email'] = $_POST['email'];
+        $_SESSION['phone'] = $_POST['phone'];
         $_SESSION['state'] = $_POST['state'];
 
 
