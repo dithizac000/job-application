@@ -10,6 +10,8 @@ session_start();
 
 //require autoload file
 require_once('vendor/autoload.php');
+require_once('model/validate.php');
+require_once('model/optional-valid.php');
 
 //instantiate F3 base class
 $f3 = Base::instance();
