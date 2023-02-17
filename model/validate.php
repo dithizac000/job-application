@@ -18,10 +18,16 @@ function validPhone($phone) {
     return (bool)preg_match("/^[0-9]{10}+$/", $phone);
 }
 
+//get years value
+function getYears() {
+    return array("0-2", "2-4",
+        "4+");
+
+}
 // checks to see that a string is a valid “value” property.
-function validExperience() {
-
-
+function validYears($years)
+{
+    return in_array($years, getYears());
 }
 
 //checks to see that an email address is valid

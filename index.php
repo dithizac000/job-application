@@ -68,17 +68,35 @@ $f3->route('GET|POST /info', function ($f3) {
 $f3->route('GET|POST /experience', function ($f3) {
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //var dump for development
-        var_dump($_POST);
+        //var_dump($_POST);
 
         // variables
         $_SESSION['bio'] = $_POST['bio'];
-        $_SESSION['link'] = $_POST['link'];
-        $_SESSION['years'] = $_POST['years'];
+
         $_SESSION['relocate'] = $_POST['relocate'];
 
-        // direct to mailing
-        $f3->reroute('mailing');
+        //validate years selection
+        $years = $_POST['years'];;
+        if(validYears($years)) $_SESSION['years'] = $years;
+        else $f3->set('errors["years"]',
+            'Must Select Years');
+
+        //validate link git hub
+        $link = trim($_POST['link']);
+        if(validGithub($link)) $_SESSION['link'] = $link;
+        else $f3->set('errors["link"]',
+            'Valid URL Format: http://www.example.com');
+
+        //Redirect to mailing page
+        //if there are no errors
+        if (empty($f3->get('errors'))) {
+            $f3->reroute('mailing');
+        }
     }
+
+    //Add years to F3 hive
+    $f3->set('years', getYears());
+    $f3->set('relocate', getLocation());
     // instantiate a view
     $view = new Template();
     echo $view->render("views/experience.html");

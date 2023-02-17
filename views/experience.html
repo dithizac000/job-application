@@ -13,28 +13,31 @@
             <div class="col-6">
                 <!--bio section -->
                 <label for="bio">Biography</label>
-                <textarea class="form-control h-100"  id="bio" rows="3" name="bio" required></textarea>
+                <textarea class="form-control h-100"  id="bio" rows="3" name="bio"></textarea>
             </div>
             <div class="col-6">
                 <!-- git hub link -->
                 <label for="link">Github link</label>
-                <input type="text" class="form-control " id="link" name="link" required>
+                <input type="text" class="form-control " id="link" name="link" placeholder="http://www.example.com">
+                <!-- error reporting for git hub url validation-->
+                <check if="{{ isset(@errors['link'])}}">
+                    <span class="text-danger">{{ @errors['link'] }}</span>
+                </check><br>
+                <!-- error reporting years selection-->
+                <check if="{{ isset(@errors['years'])}}">
+                    <span class="text-danger">{{ @errors['years'] }}</span>
+                </check> <br>
                 <!-- years of experience radio -->
                 <p>Years of Experience</p>
-                <input type="radio" id="age1" name="years" value="0-2" required>
-                <label for="age1">0-2</label><br>
-                <input type="radio" id="age2" name="years" value="2-4" required>
-                <label for="age2">2-4</label><br>
-                <input type="radio" id="age3" name="years" value="4+" required>
-                <label for="age3">4+</label><br>
+                <repeat group="{{ @years }}" value="{{ @years }}">
+                    <label><input type="radio" name="years" value="{{ @years }}"> {{ @years }}</label><br>
+                </repeat><br>
+
                 <!-- willing to relocate radio -->
                 <p>Willing to relocate</p>
-                <input type="radio" id="yes" name="relocate" value="yes" required>
-                <label for="age1">Yes</label><br>
-                <input type="radio" id="no" name="relocate" value="no" required>
-                <label for="age2">No</label><br>
-                <input type="radio" id="maybe" name="relocate" value="maybe" required>
-                <label for="age3">Maybe</label><br><br>
+                <repeat group="{{ @relocate }}" value="{{ @relocate }}">
+                    <label><input type="radio" name="relocate" value="{{ @relocate }}"> {{ ucfirst(@relocate) }}</label><br>
+                </repeat><br><br>
                 <!-- next button -->
                 <button class="btn btn-outline-success my-2 my-md-4 w-100 text" type="submit">Next</button>
             </div>
