@@ -24,11 +24,19 @@
                     <label for="lname">Last Name:</label>
                     <input type="text"  name="lname" class="form-control" id="lname" placeholder="Last Name"  >
                 </div>
+                <!-- error reporting for name validation-->
+                <check if="{{ isset(@errors['name'])}}">
+                    <span class="text-danger">{{ @errors['name'] }}</span>
+                </check>
                 <!-- email input row-->
                 <div class="col-md-12 mb-3">
                     <label for="email">Email:</label>
-                    <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
                 </div>
+                <!-- error reporting for email validation-->
+                <check if="{{ isset(@errors['email'])}}">
+                    <span class="text-danger">{{ @errors['email'] }}</span>
+                </check>
             </div>
         </div>
 
@@ -52,8 +60,12 @@
         <!-- phone input-->
         <div class="col-md-4 mb-3">
             <label for="phone">Phone:</label>
-            <input type="text" name="phone" class="form-control" id="phone" placeholder="123-456-7890" >
+            <input type="text" name="phone" class="form-control" id="phone" placeholder="1234567890" >
         </div>
+        <!-- error reporting for phone validation-->
+        <check if="{{ isset(@errors['phone'])}}">
+            <span class="text-danger">{{ @errors['phone'] }}</span>
+        </check>
         <!-- button section -->
         <div class="col-md-4 mb-3">
             <button class="btn btn-outline-success my-2 my-md-4 w-100 text" type="submit">Next</button>

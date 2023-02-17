@@ -29,6 +29,7 @@ $f3->route('GET|POST /info', function ($f3) {
     // if the form has been posted
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //var_dump($_POST); // For development process
+        $_SESSION['state'] = $_POST['state'];
 
         //trim post names
         $fname = trim($_POST['fname']);
@@ -38,8 +39,22 @@ $f3->route('GET|POST /info', function ($f3) {
             $_SESSION['fname'] = $fname;
             $_SESSION['lname'] = $lname;
         } else {
-            $f3->set('name must have at least 2 characters');
+            $f3->set('errors["name"]',
+                'Name must have at least 2 characters');
         }
+
+        // email validation
+        $email = trim($_POST['email']);
+        if(validEmail($email)) $_SESSION['email'] = $email;
+        else $f3->set('errors["email"]',
+            'Email must follow format email@example.com');
+
+
+        // phone validation
+        $phone = trim($_POST['phone']);
+        if(validPhone($phone)) $_SESSION['phone'] = $phone;
+        else $f3->set('errors["phone"]',
+            'Phone number must have at least 10 digits');
 
         // if no errors, then reroute
         if(empty($f3->get('errors'))) $f3->reroute('experience');
