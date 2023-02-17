@@ -28,18 +28,21 @@ $f3->route('GET|POST /info', function ($f3) {
 
     // if the form has been posted
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        var_dump($_POST); // For development process
+        //var_dump($_POST); // For development process
 
-        // move data from POST array to SESSION array
-        $_SESSION['fname'] = $_POST['fname'];
-        $_SESSION['lname'] = $_POST['lname'];
-        $_SESSION['email'] = $_POST['email'];
-        $_SESSION['phone'] = $_POST['phone'];
-        $_SESSION['state'] = $_POST['state'];
+        //trim post names
+        $fname = trim($_POST['fname']);
+        $lname = trim($_POST['lname']);
+        if(validName($fname) && validName($lname)) {
+            // move data from POST array to SESSION array
+            $_SESSION['fname'] = $fname;
+            $_SESSION['lname'] = $lname;
+        } else {
+            $f3->set('name must have at least 2 characters');
+        }
 
-
-        // redirect to summary page
-        $f3->reroute('experience');
+        // if no errors, then reroute
+        if(empty($f3->get('errors'))) $f3->reroute('experience');
     }
     //instantiate a view
     $view = new Template(); /// template is a fat free class

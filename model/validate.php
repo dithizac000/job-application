@@ -1,7 +1,10 @@
 <?php
 
-// checks to see that a string is all alphabetic.
-function validName() {
+// checks to see that a string is all alphabetic, first name .
+function validName($name) {
+
+    // must have a tleast two char
+    return strlen($name) > 2;
 
 }
 
