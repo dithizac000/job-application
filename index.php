@@ -106,16 +106,29 @@ $f3->route('GET|POST /experience', function ($f3) {
 $f3->route('GET|POST /mailing', function ($f3) {
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //var dump for development
-        var_dump($_POST);
-
-        // variables for arrays
-        $_SESSION['software'] = implode(", ",$_POST['software']);
-        $_SESSION['industry'] = implode(", ",$_POST['industry']);
+       // var_dump($_POST);
 
 
-        // direct to mailing
-        $f3->reroute('summary');
+        if (isset($_POST['software']) && ($_POST['industry'])) {
+            // Checkbox is selected
+            // variables for arrays
+            $_SESSION['software'] = implode(", ",$_POST['software']);
+            $_SESSION['industry'] = implode(", ",$_POST['industry']);
+        }
+        else $f3->set('errors["select"]',
+            'Must select at least one check box of both Software and Verticals');
+
+        // direct to summary if no errors
+        if (empty($f3->get('errors')))
+            $f3->reroute('summary');
+
     }
+
+    //Add array software and industry to the hive
+    $f3->set('software', getSelectionsJob());
+    $f3->set('industry', getSelectionsVerticals());
+
+
     // instantiate a view
     $view = new Template();
     echo $view->render("views/mailing.html");

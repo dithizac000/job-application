@@ -11,63 +11,26 @@
         <div class="row">
             <!-- software dev. jobs -->
             <p class="text-secondary"><b>Software Development Jobs</b></p>
-            <div class="col-lg form-check form-check-inline">
-                <label class="form-check-label"><input type="checkbox" class="form-check-input" name="software[]" value="JavaScript" >JavaScript</label>
-            </div>
-            <div class="col-lg form-check form-check-inline">
-                <label class="form-check-label"><input type="checkbox" class="form-check-input" name="software[]" value="PHP" >PHP</label>
-            </div>
-            <div class="col-lg form-check form-check-inline">
-                <label class="form-check-label"><input type="checkbox" class="form-check-input" name="software[]" value="Java">Java</label>
-            </div>
-            <div class="col-lg form-check form-check-inline">
-                <label class="form-check-label"><input type="checkbox" class="form-check-input" name="software[]" value="Python">Python</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg form-check form-check-inline">
-                <label class="form-check-label"><input type="checkbox" class="form-check-input" name="software[]" value="HTML">HTML</label>
-            </div>
-            <div class="col-lg form-check form-check-inline">
-                <label class="form-check-label"><input type="checkbox" class="form-check-input" name="software[]" value="CSS">CSS</label>
-            </div>
-            <div class="col-lg form-check form-check-inline">
-                <label class="form-check-label"><input type="checkbox" class="form-check-input" name="software[]" value="ReactJS">ReactJS</label>
-            </div>
-            <div class="col-lg form-check form-check-inline">
-                <label class="form-check-label" ><input type="checkbox" class="form-check-input" name="software[]" value="NodeJs">NodeJs</label>
+            <div class="col-md-3 form-check form-check-inline m-4">
+                <repeat group="{{ @software }}" value="{{ @software }}">
+                    <label class="form-check-label"><input type="checkbox"  class="form-check-input" name="software[]" value="{{ @software }}"> {{ @software }}</label><br>
+                </repeat>
             </div>
         </div>
 
         <div class="row">
             <!-- industry verticals -->
             <p class="text-secondary"><b>Industry Verticals</b></p>
-            <div class="col-lg form-check form-check-inline">
-                <label><input type="checkbox" class="form-check-input" name="industry[]" value="SaaS">SaaS</label><br>
+            <div class="col-lg form-check form-check-inline m-4">
+                <repeat group="{{ @industry }}" value="{{ @industry }}">
+                    <label class="form-check-label"><input type="checkbox"  class="form-check-input" name="industry[]]" value="{{ @industry }}"> {{ @industry }}</label><br>
+                </repeat>
             </div>
-            <div class="col-lg form-check form-check-inline">
-                <label><input type="checkbox" class="form-check-input" name="industry[]" value="Health tech">Health tech</label><br>
-            </div>
-            <div class="col-lg form-check form-check-inline">
-                <label><input type="checkbox" class="form-check-input" name="industry[]" value="Ag tech">Ag tech</label><br>
-            </div>
-            <div class="col-lg form-check form-check-inline">
-                <label><input type="checkbox" class="form-check-input" name="industry[]" value="HR tech">HR tech</label><br>
-            </div>
+            <!-- error reporting for selection validation-->
+            <check if="{{ isset(@errors['select'])}}">
+                <span class="text-danger">{{ @errors['select'] }}</span>
+            </check>
         </div>
-        <div class="row">
-            <div class="col-lg form-check form-check-inline">
-                <label><input type="checkbox" class="form-check-input" name="industry[]" value="Industrial tech">Industrial tech</label><br>
-            </div>
-            <div class="col-lg form-check form-check-inline">
-                <label><input type="checkbox" class="form-check-input" name="industry[]" value="Cybersecurity">Cybersecurity</label><br>
-            </div>
-            <div class="col-lg form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" autocomplete="off" disabled value="" aria-label="...">
-            </div>
-            <div class="col-lg form-check form-check-inline">
-                <input class="form-check-input" type="checkbox"   autocomplete="off" disabled value="" aria-label="...">
-            </div>
             <!-- next button -->
         <div class="d-flex flex-row-reverse">
             <!-- button section -->
