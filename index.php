@@ -5,12 +5,14 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-
-//require autoload file
+//Require files
 require_once('vendor/autoload.php');
-//require_once('model/validate.php');
-// start a session
+require_once('model/validate.php');
+require_once('model/optional-valid.php');
+
+//Start a session AFTER requiring autoload.php
 session_start();
+//var_dump($_SESSION);
 //instantiate F3 base class
 $f3 = Base::instance();
 
@@ -29,13 +31,15 @@ $f3->route('GET|POST /info', function ($f3) {
         //var_dump($_POST); // For development process
         $_SESSION['state'] = $_POST['state'];
 
+        $newApp = new Application();
         //trim post names
         $fname = trim($_POST['fname']);
         $lname = trim($_POST['lname']);
-        if(validName($fname) && validName($lname)) {
-            // move data from POST array to SESSION array
-            $_SESSION['fname'] = $fname;
-            $_SESSION['lname'] = $lname;
+        if(Validation::validName($fname) && Validation::validName($lname)) {
+            // set app with post when validated
+            $newApp->setfname($fname);
+            $newApp->setlname($lname);
+
         } else {
             $f3->set('errors["name"]',
                 'Name must have at least 2 characters');
@@ -43,19 +47,28 @@ $f3->route('GET|POST /info', function ($f3) {
 
         // email validation
         $email = trim($_POST['email']);
-        if(validEmail($email)) $_SESSION['email'] = $email;
+        if(Validation::validEmail($email)) {
+            $newApp->setEmail($email);
+        }
         else $f3->set('errors["email"]',
             'Email must follow format email@example.com');
 
 
         // phone validation
         $phone = trim($_POST['phone']);
-        if(validPhone($phone)) $_SESSION['phone'] = $phone;
+        if(Validation::validPhone($phone))
+        {
+            $newApp->setPhone($phone);
+        }
         else $f3->set('errors["phone"]',
             'Phone number must have at least 10 digits');
 
+
         // if no errors, then reroute
-        if(empty($f3->get('errors'))) $f3->reroute('experience');
+        if(empty($f3->get('errors'))) {
+            $_SESSION['newApp'] = $newApp;
+            $f3->reroute('experience');
+        }
     }
     //instantiate a view
     $view = new Template(); /// template is a fat free class
@@ -75,13 +88,13 @@ $f3->route('GET|POST /experience', function ($f3) {
 
         //validate years selection
         $years = $_POST['years'];;
-        if(validYears($years)) $_SESSION['years'] = $years;
+        if(Validation::validYears($years)) $_SESSION['years'] = $years;
         else $f3->set('errors["years"]',
             'Must Select Years');
 
         //validate link git hub
         $link = trim($_POST['link']);
-        if(validGithub($link)) $_SESSION['link'] = $link;
+        if(Validation::validGithub($link)) $_SESSION['link'] = $link;
         else $f3->set('errors["link"]',
             'Valid URL Format: http://www.example.com');
 
@@ -93,8 +106,8 @@ $f3->route('GET|POST /experience', function ($f3) {
     }
 
     //Add years to F3 hive
-    $f3->set('years', getYears());
-    $f3->set('relocate', getLocation());
+    $f3->set('years', Validation::getYears());
+    $f3->set('relocate', OptionalValidation::getLocation());
     // instantiate a view
     $view = new Template();
     echo $view->render("views/experience.html");
@@ -123,8 +136,8 @@ $f3->route('GET|POST /mailing', function ($f3) {
     }
 
     //Add array software and industry to the hive
-    $f3->set('software', getSelectionsJob());
-    $f3->set('industry', getSelectionsVerticals());
+    $f3->set('software', OptionalValidation::getSelectionsJob());
+    $f3->set('industry', OptionalValidation::getSelectionsVerticals());
 
 
     // instantiate a view
