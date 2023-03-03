@@ -8,6 +8,7 @@ error_reporting(E_ALL);
 
 //require autoload file
 require_once('vendor/autoload.php');
+//require_once('model/validate.php');
 // start a session
 session_start();
 //instantiate F3 base class
