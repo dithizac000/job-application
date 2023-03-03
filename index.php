@@ -5,14 +5,11 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// start a session
-session_start();
 
 //require autoload file
 require_once('vendor/autoload.php');
-require_once('model/validate.php');
-require_once('model/optional-valid.php');
-
+// start a session
+session_start();
 //instantiate F3 base class
 $f3 = Base::instance();
 
