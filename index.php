@@ -29,7 +29,7 @@ $f3->route('GET|POST /info', function ($f3) {
     // if the form has been posted
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //var_dump($_POST); // For development process
-        $_SESSION['state'] = $_POST['state'];
+        $_SESSION['newApp'] = $_POST['state'];
 
         $newApp = new Application();
         //trim post names
@@ -82,19 +82,19 @@ $f3->route('GET|POST /experience', function ($f3) {
         //var_dump($_POST);
 
         // variables
-        $_SESSION['bio'] = $_POST['bio'];
+        $_SESSION['newApp'] = $_POST['bio'];
 
-        $_SESSION['relocate'] = $_POST['relocate'];
+        $_SESSION['newApp'] = $_POST['relocate'];
 
         //validate years selection
         $years = $_POST['years'];;
-        if(Validation::validYears($years)) $_SESSION['years'] = $years;
+        if(Validation::validYears($years)) $_SESSION['newApp'] = $years;
         else $f3->set('errors["years"]',
             'Must Select Years');
 
         //validate link git hub
         $link = trim($_POST['link']);
-        if(Validation::validGithub($link)) $_SESSION['link'] = $link;
+        if(Validation::validGithub($link)) $_SESSION['newApp'] = $link;
         else $f3->set('errors["link"]',
             'Valid URL Format: http://www.example.com');
 
@@ -121,10 +121,12 @@ $f3->route('GET|POST /mailing', function ($f3) {
 
 
         if (isset($_POST['software']) && ($_POST['industry'])) {
-            // Checkbox is selected
-            // variables for arrays
-            $_SESSION['software'] = implode(", ",$_POST['software']);
-            $_SESSION['industry'] = implode(", ",$_POST['industry']);
+            // move data from POST array to SESSION array
+            $arraySoftware = implode(", ",$_POST['software']);
+            $arrayIndustry = implode(", ",$_POST['industry']);
+            $_SESSION['newApp']->setSelectionsJob($arraySoftware);
+            $_SESSION['newApp']->setSelectionsVerticals($arrayIndustry);
+
         }
         else $f3->set('errors["select"]',
             'Must select at least one check box of both Software and Verticals');
@@ -150,6 +152,9 @@ $f3->route('GET /summary', function() {
     //instantiate a view
     $view = new Template(); // template is a fat free class
     echo $view->render("views/summary.html"); // render method, return text on template
+
+    //destroy session array
+    session_destroy();
 });
 
 //run fat free
