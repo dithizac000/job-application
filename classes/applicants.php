@@ -112,3 +112,28 @@ class Application
     }
 }
 
+class Applicant_SubscribedToLists extends Application
+{
+    private $_selectionsJobs;
+    private $_selectionsVerticals;
+
+    public function getSelectionsJobs()
+{
+    return $this->_selectionsJobs;
+}
+
+    public function setSelectionsJobs($job)
+    {
+        $this->_selectionsJobs = $job;
+    }
+
+    public function getSelectionsVerticals()
+    {
+        return $this->_selectionsVerticals;
+    }
+
+    public function setSelectionsVerticals($verticals)
+    {
+        $this->_selectionsVerticals = $verticals;
+    }
+}

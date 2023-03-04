@@ -124,11 +124,13 @@ $f3->route('GET|POST /mailing', function ($f3) {
 
 
         if (isset($_POST['software']) && ($_POST['industry'])) {
+            $app = new Applicant_SubscribedToLists();
             // move data from POST array to SESSION array
             $arraySoftware = implode(", ",$_POST['software']);
             $arrayIndustry = implode(", ",$_POST['industry']);
-            $_SESSION['newApp']->setSelectionsJob($arraySoftware);
-            $_SESSION['newApp']->setSelectionsVerticals($arrayIndustry);
+            $app->setSelectionsJobs($arraySoftware);
+            $app->setSelectionsVerticals($arrayIndustry);
+
 
         }
         else $f3->set('errors["select"]',
