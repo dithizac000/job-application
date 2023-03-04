@@ -13,20 +13,20 @@
             <h2 class="featurette-heading text-secondary " id="summary">Summary</h2>
             <div class="row border border-secondary rounded  m-2 p-2">
                 <!-- info. html session -->
-                <p>Name: {{@SESSION.fname}} {{@SESSION.lname}} </p>
+                <p>Name: {{@SESSION.newApp->getfname() }} {{@SESSION.newApp->getlname()}} </p>
                 <hr class="featurette-divider">
-                <p>Email: {{@SESSION.email}} </p>
+                <p>Email: {{@SESSION.newApp->getEmail() }} </p>
                 <hr class="featurette-divider">
-                <p>State: {{@SESSION.state}} </p>
+                <p>State: {{@SESSION.newApp->getState() }} </p>
                 <hr class="featurette-divider">
-                <p>Phone: {{@SESSION.phone}} </p>
+                <p>Phone: {{@SESSION.newApp->getPhone() }} </p>
                 <hr class="featurette-divider">
                 <!-- experience.html session -->
-                <p>Github: {{@SESSION.link}} </p>
+                <p>Github: {{@SESSION.newApp->getGitHub() }} </p>
                 <hr class="featurette-divider">
-                <p>Years: {{@SESSION.years}} years </p>
+                <p>Years: {{@SESSION.newApp->getExp() }} years </p>
                 <hr class="featurette-divider">
-                <p>Relocation: {{@SESSION.relocate}} </p>
+                <p>Relocation: {{@SESSION.newApp->getRelocate() }} </p>
                 <hr class="featurette-divider">
                 <!-- mailing.html session -->
                 <p>Software: {{@SESSION.software}} </p>

@@ -28,10 +28,12 @@ $f3->route('GET|POST /info', function ($f3) {
 
     // if the form has been posted
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //var_dump($_POST); // For development process
-        $_SESSION['newApp'] = $_POST['state'];
-
+        // instantiate new app
         $newApp = new Application();
+
+        /// set state
+        $newApp->setState($_POST['state']);
+
         //trim post names
         $fname = trim($_POST['fname']);
         $lname = trim($_POST['lname']);
@@ -78,23 +80,24 @@ $f3->route('GET|POST /info', function ($f3) {
 //reroute from info to views/experience.html
 $f3->route('GET|POST /experience', function ($f3) {
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //var dump for development
-        //var_dump($_POST);
+        //set and session variables
+        $_SESSION['newApp']->setBio($_POST['bio']);
 
-        // variables
-        $_SESSION['newApp'] = $_POST['bio'];
-
-        $_SESSION['newApp'] = $_POST['relocate'];
+        $_SESSION['newApp']->setRelocate($_POST['relocate']);
 
         //validate years selection
         $years = $_POST['years'];;
-        if(Validation::validYears($years)) $_SESSION['newApp'] = $years;
+        if(Validation::validYears($years)) {
+            $_SESSION['newApp']->setExp($years);
+        }
         else $f3->set('errors["years"]',
             'Must Select Years');
 
         //validate link git hub
         $link = trim($_POST['link']);
-        if(Validation::validGithub($link)) $_SESSION['newApp'] = $link;
+        if(Validation::validGithub($link)) {
+            $_SESSION['newApp']->setGitHub($link);
+        }
         else $f3->set('errors["link"]',
             'Valid URL Format: http://www.example.com');
 
