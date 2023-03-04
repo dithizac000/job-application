@@ -29,9 +29,9 @@
                 <p>Relocation: {{@SESSION.newApp->getRelocate() }} </p>
                 <hr class="featurette-divider">
                 <!-- mailing.html session -->
-                <p>Software: {{@SESSION.software}} </p>
+                <p>Software: {{@SESSION.app->getSelectionsJobs() }} </p>
                 <hr class="featurette-divider">
-                <p>Industry Verticals: {{@SESSION.industry}} </p>
+                <p>Industry Verticals: {{@SESSION.app->getSelectionsVerticals() }} </p>
             </div>
         </div>
         <div class="col-6">

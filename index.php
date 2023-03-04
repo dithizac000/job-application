@@ -119,32 +119,33 @@ $f3->route('GET|POST /experience', function ($f3) {
 //reroute from experience to views/mailing.html
 $f3->route('GET|POST /mailing', function ($f3) {
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //var dump for development
-       // var_dump($_POST);
+        //instantiate extend class
+        $app = new Applicant_SubscribedToLists();
 
 
         if (isset($_POST['software']) && ($_POST['industry'])) {
-            $app = new Applicant_SubscribedToLists();
             // move data from POST array to SESSION array
             $arraySoftware = implode(", ",$_POST['software']);
             $arrayIndustry = implode(", ",$_POST['industry']);
             $app->setSelectionsJobs($arraySoftware);
             $app->setSelectionsVerticals($arrayIndustry);
 
-
         }
         else $f3->set('errors["select"]',
             'Must select at least one check box of both Software and Verticals');
 
         // direct to summary if no errors
-        if (empty($f3->get('errors')))
+        if (empty($f3->get('errors'))) {
+            $_SESSION['app'] = $app;
             $f3->reroute('summary');
+        }
+
 
     }
 
     //Add array software and industry to the hive
     $f3->set('software', OptionalValidation::getSelectionsJob());
-    $f3->set('industry', OptionalValidation::getSelectionsVerticals());
+    $f3->set('industry', OptionalValidation::getSelectionsVertical());
 
 
     // instantiate a view
@@ -154,6 +155,7 @@ $f3->route('GET|POST /mailing', function ($f3) {
 
 // route from mailing and var dump to views/summary.html
 $f3->route('GET /summary', function() {
+
     //instantiate a view
     $view = new Template(); // template is a fat free class
     echo $view->render("views/summary.html"); // render method, return text on template

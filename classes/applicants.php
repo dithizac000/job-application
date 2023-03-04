@@ -117,10 +117,16 @@ class Applicant_SubscribedToLists extends Application
     private $_selectionsJobs;
     private $_selectionsVerticals;
 
+    function __construct($job="", $vertical="")
+    {
+        $this->_selectionsJobs = $job;
+        $this->_selectionsVerticals = $vertical;
+
+    }
     public function getSelectionsJobs()
-{
-    return $this->_selectionsJobs;
-}
+    {
+        return $this->_selectionsJobs;
+    }
 
     public function setSelectionsJobs($job)
     {

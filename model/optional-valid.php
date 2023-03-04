@@ -19,7 +19,7 @@ class OptionalValidation
     }
 
 // checks each selected verticals checkbox selection against a list of valid options
-    static function getSelectionsVerticals() {
+    static function getSelectionsVertical() {
         return array("SaaS","Health tech","Ag tech",
             "HR tech","Industrial tech","Cybersecurity");
     }
