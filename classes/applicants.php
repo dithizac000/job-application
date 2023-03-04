@@ -12,6 +12,7 @@ class Application
     private $_experience;
     private $_relocate;
     private $_bio;
+    private $_mailBox;
 
     function __construct($fname="", $lname="", $email="", $state="", $phone="")
     {
@@ -109,6 +110,16 @@ class Application
     public function setBio($bio)
     {
         $this->_bio = $bio;
+    }
+
+    public function getMail()
+    {
+        return $this->_mailBox;
+    }
+
+    public function setMail($mail)
+    {
+        $this->_mailBox = $mail;
     }
 }
 

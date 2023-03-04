@@ -16,11 +16,13 @@ session_start();
 //instantiate F3 base class
 $f3 = Base::instance();
 
+//Instantiate a Controller and DataLayer object
+$control = new Control($f3);
+
 // define a home route (SDEV328/job-application)
 $f3->route('GET /', function() {
     //instantiate a view
-    $view = new Template(); // template is a fat free class
-    echo $view->render("views/home.html"); // render method, return text on template
+    $GLOBALS['control']->home();
 });
 
 // info.html route (328/job-application/info.html)
@@ -30,7 +32,6 @@ $f3->route('GET|POST /info', function ($f3) {
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         // instantiate new app
         $newApp = new Application();
-
 
         /// set state
         $newApp->setState($_POST['state']);
@@ -67,8 +68,15 @@ $f3->route('GET|POST /info', function ($f3) {
             'Phone number must have at least 10 digits');
 
 
+        // checkbox for mailing
+        $mailbox = $_POST['mailingBox'];
+        if (isset($_POST['mailingBox'])){
+            $newApp->setMail($mailbox);
+        }
+
         // if no errors, then reroute
         if(empty($f3->get('errors'))) {
+            //mailing session
             $_SESSION['newApp'] = $newApp;
             $f3->reroute('experience');
         }
@@ -80,6 +88,8 @@ $f3->route('GET|POST /info', function ($f3) {
 
 //reroute from info to views/experience.html
 $f3->route('GET|POST /experience', function ($f3) {
+    echo $_SESSION['newApp']->getMail();
+
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //set and session variables
         $_SESSION['newApp']->setBio($_POST['bio']);
@@ -87,7 +97,7 @@ $f3->route('GET|POST /experience', function ($f3) {
         $_SESSION['newApp']->setRelocate($_POST['relocate']);
 
         //validate years selection
-        $years = $_POST['years'];;
+        $years = $_POST['years'];
         if(Validation::validYears($years)) {
             $_SESSION['newApp']->setExp($years);
         }
@@ -104,8 +114,10 @@ $f3->route('GET|POST /experience', function ($f3) {
 
         //Redirect to mailing page
         //if there are no errors
-        if (empty($f3->get('errors'))) {
+        if (empty($f3->get('errors')) && ($_SESSION['newApp']->getMail() == 'mailingBox')) {
             $f3->reroute('mailing');
+        } elseif(empty($f3->get('errors'))) {
+            $f3->reroute('summary');
         }
     }
 
@@ -119,19 +131,22 @@ $f3->route('GET|POST /experience', function ($f3) {
 
 //reroute from experience to views/mailing.html
 $f3->route('GET|POST /mailing', function ($f3) {
+    var_dump($_POST);
+    echo $_SESSION['newApp']->getMail();
+
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //instantiate extend class
         $app = new Applicant_SubscribedToLists();
 
         if (isset($_POST['software']) && ($_POST['industry'])) {
             // move data from POST array to SESSION array
-            $arraySoftware = implode(", ",$_POST['software']);
-            $arrayIndustry = implode(", ",$_POST['industry']);
+            $arraySoftware = implode(", ", $_POST['software']);
+            $arrayIndustry = implode(", ", $_POST['industry']);
             $app->setSelectionsJobs($arraySoftware);
             $app->setSelectionsVerticals($arrayIndustry);
-
         }
-        else $f3->set('errors["select"]',
+
+        else $f3->set('@errors["select"]',
             'Must select at least one check box of both Software and Verticals');
 
         // direct to summary if no errors
@@ -154,7 +169,12 @@ $f3->route('GET|POST /mailing', function ($f3) {
 });
 
 // route from mailing and var dump to views/summary.html
-$f3->route('GET /summary', function() {
+$f3->route('GET /summary', function($f3) {
+    var_dump($_POST);
+
+    // place into hive
+    if($_SESSION['newApp']->getMail() == 'mailingBox') {
+    }
 
     //instantiate a view
     $view = new Template(); // template is a fat free class
