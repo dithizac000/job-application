@@ -31,6 +31,7 @@ $f3->route('GET|POST /info', function ($f3) {
         // instantiate new app
         $newApp = new Application();
 
+
         /// set state
         $newApp->setState($_POST['state']);
 
@@ -121,7 +122,6 @@ $f3->route('GET|POST /mailing', function ($f3) {
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //instantiate extend class
         $app = new Applicant_SubscribedToLists();
-
 
         if (isset($_POST['software']) && ($_POST['industry'])) {
             // move data from POST array to SESSION array
