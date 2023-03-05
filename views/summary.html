@@ -29,9 +29,15 @@
                 <p>Relocation: {{@SESSION.newApp->getRelocate() }} </p>
                 <hr class="featurette-divider">
                 <!-- mailing session -->
-
-
-
+                <check if="{{ @SESSION.newApp->getMail() != null }}">
+                    <true>
+                        <p>Software: {{@SESSION.app->getSelectionsJobs() }} </p>
+                        <hr class="featurette-divider">
+                        <p>Industry: {{@SESSION.app->getSelectionsVerticals() }} </p>
+                    </true>
+                    <false>
+                    </false>
+                </check>
             </div>
         </div>
         <div class="col-6">

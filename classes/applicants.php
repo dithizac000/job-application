@@ -153,4 +153,5 @@ class Applicant_SubscribedToLists extends Application
     {
         $this->_selectionsVerticals = $verticals;
     }
+
 }

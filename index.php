@@ -88,7 +88,6 @@ $f3->route('GET|POST /info', function ($f3) {
 
 //reroute from info to views/experience.html
 $f3->route('GET|POST /experience', function ($f3) {
-    echo $_SESSION['newApp']->getMail();
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //set and session variables
@@ -131,8 +130,6 @@ $f3->route('GET|POST /experience', function ($f3) {
 
 //reroute from experience to views/mailing.html
 $f3->route('GET|POST /mailing', function ($f3) {
-    var_dump($_POST);
-    echo $_SESSION['newApp']->getMail();
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //instantiate extend class
@@ -145,17 +142,8 @@ $f3->route('GET|POST /mailing', function ($f3) {
             $app->setSelectionsJobs($arraySoftware);
             $app->setSelectionsVerticals($arrayIndustry);
         }
-
-        else $f3->set('@errors["select"]',
-            'Must select at least one check box of both Software and Verticals');
-
-        // direct to summary if no errors
-        if (empty($f3->get('errors'))) {
             $_SESSION['app'] = $app;
             $f3->reroute('summary');
-        }
-
-
     }
 
     //Add array software and industry to the hive
@@ -170,18 +158,13 @@ $f3->route('GET|POST /mailing', function ($f3) {
 
 // route from mailing and var dump to views/summary.html
 $f3->route('GET /summary', function($f3) {
-    var_dump($_POST);
-
-    // place into hive
-    if($_SESSION['newApp']->getMail() == 'mailingBox') {
-    }
 
     //instantiate a view
     $view = new Template(); // template is a fat free class
     echo $view->render("views/summary.html"); // render method, return text on template
-
     //destroy session array
     session_destroy();
+
 });
 
 //run fat free
