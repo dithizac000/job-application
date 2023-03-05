@@ -7,8 +7,6 @@ error_reporting(E_ALL);
 
 //Require files
 require_once('vendor/autoload.php');
-require_once('model/validate.php');
-require_once('model/optional-valid.php');
 
 //Start a session AFTER requiring autoload.php
 session_start();
