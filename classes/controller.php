@@ -159,4 +159,11 @@ class Control
         session_destroy();
     }
 
+    function admin()
+    {
+        //instantiate a view
+        $view = new Template(); // template is a fat free class
+        echo $view->render("views/admin.html"); // render method, return text on template
+
+    }
 }

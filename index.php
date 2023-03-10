@@ -45,6 +45,11 @@ $f3->route('GET|POST /mailing', function ($f3) {
 $f3->route('GET /summary', function($f3) {
     $GLOBALS['control']->summary();
 
+});
+
+// render views/admin.html
+$f3->route('GET /admin', function($f3) {
+    $GLOBALS['control']->admin();
 
 });
 
