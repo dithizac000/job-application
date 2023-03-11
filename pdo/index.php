@@ -65,5 +65,17 @@ $statement-> execute();
 // 5.
 echo "Updated Name";
 */
+$sql = "SELECT * FROM jobs"; // multi. rows
+//$sql = "SELECT * FROM jobs WHERE id = :id";
+$statement = $dbh->prepare($sql);
+//$id = 2;
+//$statement->bindParam(':id', $id);
+$statement->execute();
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+//$row = $statement->fetch(PDO::FETCH_ASSOC);
+foreach ($result as $row) {
+    echo "<br>".$row['name']. ", ". $row['phone'] . "<br>";
+
+}
 
