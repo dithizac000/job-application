@@ -18,7 +18,7 @@ try {
 }
 /**
  * Insert Table row w/ 5 steps query into jobs
- */
+ */ /*
 // 1. Define SQL statement
 $sql = "INSERT INTO jobs VALUES (null,:name,:link,:phone,:email,:state,:exp,:relocate,:list,:sub)";
 // 2. Prepare the statement
@@ -45,3 +45,25 @@ $statement->bindParam(':sub', $sub);
 // 4. Execute teh query
 $statement->execute();
 // 5. Process the result if there is one. Usually for SELECT query
+$id = $dbh->lastInsertId();
+echo "<h1> USER: " . $id . "</h1>";
+*/
+/*
+/**
+ * Updating a varaible in the sql via php
+// 1. Define Query
+$sql = "UPDATE jobs SET name = :newName WHERE name = :oldName";
+// 2. Prepare the statement
+$statement = $dbh->prepare($sql);
+// 3. Bind the parameters
+$newName = "Freddy Z";
+$oldName = "Ryan Z";
+$statement->bindParam(':oldName', $oldName);
+$statement->bindParam(':newName',$newName);
+// 4. execute query
+$statement-> execute();
+// 5.
+echo "Updated Name";
+*/
+
+
