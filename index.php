@@ -8,6 +8,9 @@ error_reporting(E_ALL);
 //Require files
 require_once('vendor/autoload.php');
 
+// TEST my DataLayer class
+$dataLayer = new DataLayer();
+
 //Start a session AFTER requiring autoload.php
 session_start();
 //var_dump($_SESSION);
