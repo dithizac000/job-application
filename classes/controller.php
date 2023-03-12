@@ -152,6 +152,10 @@ class Control
 
     function summary()
     {
+        print_r($_SESSION);
+        // write to database
+        $id = $GLOBALS['data']->saveApp($_SESSION['newApp']);
+        echo "ORDER ID: ". $id;
         //instantiate a view
         $view = new Template(); // template is a fat free class
         echo $view->render("views/summary.html"); // render method, return text on template

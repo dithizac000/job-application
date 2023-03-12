@@ -24,13 +24,32 @@ class DataLayer
      * @param $orderObj
      * @return void
      */
-    function saveOrder($orderObj) {
-        // 1. DEFINE QUERY
+    function saveApp($orderObj) {
+        // 1. Define SQL statement
         $sql = "INSERT INTO jobs VALUES (null,:name,:link,:phone,:email,:state,:exp,:relocate,:list,:sub)";
-        // 2. PREPARE THE STATEMENT
+// 2. Prepare the statement
         $statement = $this->_dbh->prepare($sql);
-        // 3. BIND THE PARAMETERS
-        $statement->bindParam(':name',
-         );
+// 3. Bind the parameters
+        $name = $orderObj->getfname();
+        $link = $orderObj->getGitHub();
+        $phone = $orderObj->getPhone();
+        $email = $orderObj->getEmail();
+        $state = $orderObj->getState();
+        $exp = $orderObj->getExp();
+        $relocate = $orderObj-> getRelocate();
+        $list = "";
+        $sub = "";
+        $statement->bindParam(':name', $name);
+        $statement->bindParam(':link', $link);
+        $statement->bindParam(':phone', $phone);
+        $statement->bindParam(':email', $email);
+        $statement->bindParam(':state', $state);
+        $statement->bindParam(':exp', $exp);
+        $statement->bindParam(':relocate', $relocate);
+        $statement->bindParam(':list', $list);
+        $statement->bindParam(':sub', $sub);
+// 4. Execute teh query
+        $statement->execute();
+
     }
 }

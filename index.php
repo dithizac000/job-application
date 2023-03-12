@@ -16,6 +16,7 @@ $f3 = Base::instance();
 
 //Instantiate a Controller and DataLayer object
 $control = new Control($f3);
+$data = new DataLayer();
 
 // define a home route (SDEV328/job-application)
 $f3->route('GET /', function() {
