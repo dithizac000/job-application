@@ -61,8 +61,8 @@ class Control
 
 
             // checkbox for mailing
-            $mailbox = $_POST['mailingBox'];
-            if (isset($_POST['mailingBox'])){
+            $mailbox = $_POST['yes'];
+            if (isset($_POST['yes'])){
                 $newApp->setMail($mailbox);
             }
 
@@ -104,7 +104,7 @@ class Control
 
             //Redirect to mailing page
             //if there are no errors
-            if (empty($this->_f3->get('errors')) && ($_SESSION['newApp']->getMail() == 'mailingBox')) {
+            if (empty($this->_f3->get('errors')) && ($_SESSION['newApp']->getMail() == 'yes')) {
                 $this->_f3->reroute('mailing');
             } elseif(empty($this->_f3->get('errors'))) {
                 $this->_f3->reroute('summary');
@@ -154,8 +154,10 @@ class Control
     {
         print_r($_SESSION);
         // write to database
-        $id = $GLOBALS['data']->insertApplicant($_SESSION['newApp']);
-        echo "ORDER ID: ". $id;
+        $GLOBALS['data']->insertApplicant($_SESSION['newApp']);
+        if($GLOBALS['app'] != null) {
+            $GLOBALS['data']->insertList($_SESSION['app'],$_SESSION['newApp']);
+        }
         //instantiate a view
         $view = new Template(); // template is a fat free class
         echo $view->render("views/summary.html"); // render method, return text on template

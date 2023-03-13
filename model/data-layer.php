@@ -27,7 +27,8 @@ class DataLayer
     function insertApplicant($orderObj)
     {
         // 1. Define SQL statement
-        $sql = "INSERT INTO jobs VALUES (null,:fname,:lname,:link,:phone,:email,:state,:exp,:relocate,null,null)";
+        $sql = "INSERT INTO jobs (`id`, `fname`, `lname`, `github`, `phone`, `email`, `state`, `experience`, `relocate`) 
+V       ALUES (null,:fname,:lname,:link,:phone,:email,:state,:exp,:relocate)";
         // 2. Prepare the statement
         $statement = $this->_dbh->prepare($sql);
         // 3. Bind the parameters
@@ -54,12 +55,30 @@ class DataLayer
 
     }
 
+    function insertList($order,$otherOrder)
+    {
+        $sql = "UPDATE INTO jobs SET lists = :list,subscriptions = :sub, verticals = :vert WHERE id = :id";
+        $statement = $this->_dbh->prepare($sql);
+
+        $list = $otherOrder->getMail();
+        $sub = $order->getSelectionsJobs();
+        $vert = $order->getSelectionsVerticals();
+        $id = $this->_dbh->lastInsertId();
+        $statement->bindParam(':list', $list);
+        $statement->bindParam(':sub', $sub);
+        $statement->bindParam(':vert', $vert);
+        $statement->bindParam(':id', $id);
+        $statement->execute();
+
+
+    }
+
     /** This functions fetch all the file in the data
      * @return void
      */
     function getApplicants()
     {
-        $sql = "SELECT * FROM jobs"; // multi. rows
+        $sql = "SELECT * FROM jobs ORDER BY lname"; // multi. rows
         $statement = $this->_dbh->prepare($sql);
         $statement->execute();
 
@@ -72,7 +91,11 @@ class DataLayer
      * @return voidT
      */
     function getApplicant($app_id) {
-
+        $sql = "SELECT * FROM jobs WHERE id = :id";
+        $statement = $this->_dbh->prepare($sql);
+        $statement->bindParam(':id', $id);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
     /** This functiongs returns the subscription selection from the job page
@@ -80,6 +103,11 @@ class DataLayer
      * @return void
      */
     function getSubscrtiptions($app_id) {
+        $sql = "SELECT subscriptions FROM jobs  WHERE id = :id";
+        $statement = $this->_dbh->prepare($sql);
+        $statement->bindParam(':id', $id);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC);
 
     }
 
