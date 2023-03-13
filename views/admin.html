@@ -1,88 +1,37 @@
 <include href="views/header.html"></include>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                ID
-                <repeat group="{{ @apps }}" value="{{ @app }}">
-                    <p>{{ @app['id'] }}<br>
-                    </p>
-                </repeat>
-            </div>
 
-            <div class="col">
-                NAME
-                <repeat group="{{ @apps }}" value="{{ @app }}">
-                    <p>{{ @app['fname'] . " " .@app['lname']}} <br>
-                    </p>
-                </repeat>
-            </div>
-
-            <div class="col">
-                GITHUB
-                <repeat group="{{ @apps }}" value="{{ @app }}">
-                    <p>{{ @app['github'] }} <br>
-                    </p>
-                </repeat>
-            </div>
-
-            <div class="col">
-                PHONE
-                <repeat group="{{ @apps }}" value="{{ @app }}">
-                    <p>{{ @app['phone'] }} <br>
-                    </p>
-                </repeat>
-            </div>
-            <div class="col">
-                EMAIL
-                <repeat group="{{ @apps }}" value="{{ @app }}">
-                    <p>{{ @app['email'] }} <br>
-                    </p>
-                </repeat>
-            </div>
-
-            <div class="col">
-                STATE
-                <repeat group="{{ @apps }}" value="{{ @app }}">
-                    <p>{{ @app['state'] }} <br>
-                    </p>
-                </repeat>
-            </div>
-
-
-            <div class="col">
-                EXPERIENCE
-                <repeat group="{{ @apps }}" value="{{ @app }}">
-                    <p>{{ @app['experience'] }}+ Years <br>
-                    </p>
-                </repeat>
-            </div>
-
-
-            <div class="col">
-                RELOCATE
-                <repeat group="{{ @apps }}" value="{{ @app }}">
-                    <p>{{ @app['relocate'] }} <br>
-                    </p>
-                </repeat>
-            </div>
-
-            <div class="col">
-                LISTS
-                <repeat group="{{ @apps }}" value="{{ @app }}">
-                    <p>{{ @app['lists'] }} <br>
-                    </p>
-                </repeat>
-            </div>
-
-            <div class="col">
-                SUBSCRIPTIONS
-                <repeat group="{{ @apps }}" value="{{ @app }}">
-                    <p>{{ @app['subscriptions'] }} <br>
-                    </p>
-                </repeat>
-            </div>
-        </div>
-    </div>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">GITHUB</th>
+        <th scope="col">PHONE</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">STATE</th>
+        <th scope="col">EXPERIENCE</th>
+        <th scope="col">RELOCATE</th>
+        <th scope="col">LISTS</th>
+        <th scope="col">SUBSCRIPTIONS</th>
+    </tr>
+    </thead>
+    <tbody>
+    <repeat group="{{ @apps }}" value="{{ @app }}">
+        <tr>
+            <th scope="col">{{ @app['id'] }}</th>
+            <th scope="row">{{ @app['fname'] . " " .@app['lname']}}</th>
+            <td>{{ @app['github'] }}</td>
+            <td>{{ @app['phone'] }}</td>
+            <td>{{ @app['email'] }}</td>
+            <td>{{ @app['state'] }} </td>
+            <td>{{ @app['experience'] }}</td>
+            <td>{{ @app['relocate'] }}</td>
+            <td>{{ @app['lists'] }} </td>
+            <td>{{ @app['subscriptions'] }}</td>
+        </tr>
+    </repeat>
+    </tbody>
+</table>
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

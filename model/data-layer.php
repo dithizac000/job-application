@@ -41,7 +41,7 @@ class DataLayer
         $relocate = $orderObj-> getRelocate();
 
         $statement->bindParam(':fname', $fname);
-        $statement->bindParam(':flame', $lname);
+        $statement->bindParam(':lname', $lname);
         $statement->bindParam(':link', $link);
         $statement->bindParam(':phone', $phone);
         $statement->bindParam(':email', $email);
@@ -54,7 +54,7 @@ class DataLayer
 
     }
 
-    /** This functions fetch all of the file in the data
+    /** This functions fetch all the file in the data
      * @return void
      */
     function getApplicants()
