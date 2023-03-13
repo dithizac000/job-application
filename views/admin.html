@@ -3,43 +3,83 @@
         <div class="row">
             <div class="col">
                 ID
+                <repeat group="{{ @apps }}" value="{{ @app }}">
+                    <p>{{ @app['id'] }}<br>
+                    </p>
+                </repeat>
             </div>
 
             <div class="col">
                 NAME
+                <repeat group="{{ @apps }}" value="{{ @app }}">
+                    <p>{{ @app['fname'] . " " .@app['lname']}} <br>
+                    </p>
+                </repeat>
             </div>
 
             <div class="col">
                 GITHUB
+                <repeat group="{{ @apps }}" value="{{ @app }}">
+                    <p>{{ @app['github'] }} <br>
+                    </p>
+                </repeat>
             </div>
 
             <div class="col">
                 PHONE
+                <repeat group="{{ @apps }}" value="{{ @app }}">
+                    <p>{{ @app['phone'] }} <br>
+                    </p>
+                </repeat>
             </div>
             <div class="col">
                 EMAIL
+                <repeat group="{{ @apps }}" value="{{ @app }}">
+                    <p>{{ @app['email'] }} <br>
+                    </p>
+                </repeat>
             </div>
 
             <div class="col">
                 STATE
+                <repeat group="{{ @apps }}" value="{{ @app }}">
+                    <p>{{ @app['state'] }} <br>
+                    </p>
+                </repeat>
             </div>
 
 
             <div class="col">
                 EXPERIENCE
+                <repeat group="{{ @apps }}" value="{{ @app }}">
+                    <p>{{ @app['experience'] }}+ Years <br>
+                    </p>
+                </repeat>
             </div>
 
 
             <div class="col">
                 RELOCATE
+                <repeat group="{{ @apps }}" value="{{ @app }}">
+                    <p>{{ @app['relocate'] }} <br>
+                    </p>
+                </repeat>
             </div>
 
             <div class="col">
                 LISTS
+                <repeat group="{{ @apps }}" value="{{ @app }}">
+                    <p>{{ @app['lists'] }} <br>
+                    </p>
+                </repeat>
             </div>
 
             <div class="col">
                 SUBSCRIPTIONS
+                <repeat group="{{ @apps }}" value="{{ @app }}">
+                    <p>{{ @app['subscriptions'] }} <br>
+                    </p>
+                </repeat>
             </div>
         </div>
     </div>

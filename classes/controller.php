@@ -154,7 +154,7 @@ class Control
     {
         print_r($_SESSION);
         // write to database
-        $id = $GLOBALS['data']->saveApp($_SESSION['newApp']);
+        $id = $GLOBALS['data']->insertApplicant($_SESSION['newApp']);
         echo "ORDER ID: ". $id;
         //instantiate a view
         $view = new Template(); // template is a fat free class
@@ -165,6 +165,10 @@ class Control
 
     function admin()
     {
+        //Get the data from the model
+        $apps = $GLOBALS['data']->getApplicants();
+        $this->_f3->set('apps', $apps);
+        print_r($_SESSION);
         //instantiate a view
         $view = new Template(); // template is a fat free class
         echo $view->render("views/admin.html"); // render method, return text on template
