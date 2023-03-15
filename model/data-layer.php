@@ -28,7 +28,7 @@ class DataLayer
     {
         // 1. Define SQL statement
         $sql = "INSERT INTO jobs (`id`, `fname`, `lname`, `github`, `phone`, `email`, `state`, `experience`, `relocate`) 
-V       ALUES (null,:fname,:lname,:link,:phone,:email,:state,:exp,:relocate)";
+VALUES (null,:fname,:lname,:link,:phone,:email,:state,:exp,:relocate)";
         // 2. Prepare the statement
         $statement = $this->_dbh->prepare($sql);
         // 3. Bind the parameters

@@ -1,6 +1,6 @@
 <?php
 
-// 328/diner/controller/controller.php
+// 328/diner/controller/Controller.php
 
 class Control
 {
@@ -31,7 +31,7 @@ class Control
             //trim post names
             $fname = trim($_POST['fname']);
             $lname = trim($_POST['lname']);
-            if(Validation::validName($fname) && Validation::validName($lname)) {
+            if(validation::validName($fname) && validation::validName($lname)) {
                 // set app with post when validated
                 $newApp->setfname($fname);
                 $newApp->setlname($lname);
@@ -43,7 +43,7 @@ class Control
 
             // email validation
             $email = trim($_POST['email']);
-            if(Validation::validEmail($email)) {
+            if(validation::validEmail($email)) {
                 $newApp->setEmail($email);
             }
             else $this->_f3->set('errors["email"]',
@@ -52,7 +52,7 @@ class Control
 
             // phone validation
             $phone = trim($_POST['phone']);
-            if(Validation::validPhone($phone))
+            if(validation::validPhone($phone))
             {
                 $newApp->setPhone($phone);
             }
@@ -88,7 +88,7 @@ class Control
 
             //validate years selection
             $years = $_POST['years'];
-            if(Validation::validYears($years)) {
+            if(validation::validYears($years)) {
                 $_SESSION['newApp']->setExp($years);
             }
             else $this->_f3->set('errors["years"]',
@@ -96,7 +96,7 @@ class Control
 
             //validate link git hub
             $link = trim($_POST['link']);
-            if(Validation::validGithub($link)) {
+            if(validation::validGithub($link)) {
                 $_SESSION['newApp']->setGitHub($link);
             }
             else $this->_f3->set('errors["link"]',
@@ -112,7 +112,7 @@ class Control
         }
 
         //Add years to F3 hive
-        $this->_f3->set('years', Validation::getYears());
+        $this->_f3->set('years', validation::getYears());
         $this->_f3->set('relocate', OptionalValidation::getLocation());
         // instantiate a view
         $view = new Template();
